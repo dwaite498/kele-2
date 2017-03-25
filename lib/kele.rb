@@ -9,6 +9,14 @@ class Kele
       @auth_token = response['auth_token']
       puts @auth_token
    end
+   
+   def det_mentor_availability(mentor_id)
+      @mentor_url = INSERT url
+      response = INSERT api call
+      (error)
+      
+      
+   end
 end
 
 private
