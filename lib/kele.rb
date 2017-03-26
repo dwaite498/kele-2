@@ -1,4 +1,5 @@
 require 'httparty'
+require JSON
 class Kele
     include HTTParty
 
@@ -10,13 +11,11 @@ class Kele
       puts @auth_token
    end
    
-   def get_mentor_availability(mentor_id)
-     
+   def get_mentor_availability
+      mentor_id = 592292
       response = self.class.get base_api('mentors/#{mentor_id}/student_availability'), headers
       @mentor_availability = JSON.parse(response.body)
       puts response
-      
-      
    end
 end
 
