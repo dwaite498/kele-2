@@ -1,19 +1,21 @@
 require 'httparty'
 require 'json'
-require 'roadmap'
+require_relative 'roadmap'
 
 class Kele
     include HTTParty
+    include Roadmap
 
    def initialize(email, password)
       @user = {'email': email, 'password': password}
       response = self.class.post base_api('sessions'), body: @user
-      raise "An error has occured" if response == 401
+      raise "An error has occured" unless response.code.between?(200, 299)
       @auth_token = response['auth_token']
    end
    
    def get_me
       response = self.class.get base_api("users/me"), headers: { :authorization => @auth_token }
+      print response.body
       @user_data = JSON.parse(response.body)
    end
    
