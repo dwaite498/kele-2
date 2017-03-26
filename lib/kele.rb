@@ -1,9 +1,5 @@
 require 'httparty'
-<<<<<<< HEAD
-require JSON
-=======
 require 'json'
->>>>>>> master
 class Kele
     include HTTParty
     include JSON
