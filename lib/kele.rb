@@ -11,9 +11,9 @@ class Kele
    end
    
    def det_mentor_availability(mentor_id)
-      @mentor_url = INSERT url
-      response = INSERT api call
-      (error)
+     
+      response = self.class.get(@base_api('mentors/#{mentor_id}/student_availability'))
+      puts response
       
       
    end
