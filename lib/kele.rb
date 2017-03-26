@@ -5,6 +5,8 @@ require_relative 'roadmap'
 class Kele
     include HTTParty
     include Roadmap
+    
+    attr_reader :auth_token
 
    def initialize(email, password)
       @user = {'email': email, 'password': password}
