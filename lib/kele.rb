@@ -20,7 +20,7 @@ class Kele
    # mentor_id = 592292
    
    def get_mentor_availability(mentor_id)
-      response = self.class.get base_api('mentors/#{mentor_id}/student_availability'), headers: { :authorization => @auth_token }
+      response = self.class.get base_api("mentors/#{mentor_id}/student_availability"), headers: { :authorization => @auth_token }
       @mentor_availability = JSON.parse(response.body)
       puts response
    end
