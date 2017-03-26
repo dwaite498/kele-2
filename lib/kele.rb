@@ -1,8 +1,8 @@
 require 'httparty'
 require 'json'
+
 class Kele
     include HTTParty
-    include JSON
 
    def initialize(email, password)
       @user = {'email': email, 'password': password}
@@ -11,8 +11,9 @@ class Kele
       @auth_token = response['auth_token']
    end
    
-   def get_mentor_availability
-      mentor_id = 592292
+   # mentor_id = 592292
+   
+   def get_mentor_availability(mentor_id)
       response = self.class.get base_api('mentors/#{mentor_id}/student_availability'), headers: { :authorization => @auth_token }
       @mentor_availability = JSON.parse(response.body)
       puts response
