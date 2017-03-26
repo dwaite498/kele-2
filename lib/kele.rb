@@ -6,19 +6,14 @@ class Kele
 
    def initialize(email, password)
       @user = {'email': email, 'password': password}
-      response = self.class.post(base_api('sessions'), body: @user)
+      response = self.class.post base_api('sessions'), body: @user
       raise "An error has occured" if response == 401
       @auth_token = response['auth_token']
    end
    
    def get_me
-      headers = {
-         :content_type => 'application/json',
-         :authorization => @auth_token
-      }
-      response = self.class.get base_api("users/me"), headers
-      @user_email = JSON.parse(response.body)
-      puts @user_email
+      response = self.class.get base_api("users/me"), headers: { :authorization => @auth_token }
+      @user_data = JSON.parse(response.body)
       puts JSON.parse(response.body)
    end
    
