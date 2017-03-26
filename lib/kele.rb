@@ -14,7 +14,6 @@ class Kele
    def get_me
       response = self.class.get base_api("users/me"), headers: { :authorization => @auth_token }
       @user_data = JSON.parse(response.body)
-      puts JSON.parse(response.body)
    end
    
 end
