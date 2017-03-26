@@ -11,18 +11,18 @@ class Kele
       @auth_token = response['auth_token']
    end
    
+   def get_me
+      response = self.class.get base_api("users/me"), headers: { :authorization => @auth_token }
+      @user_data = JSON.parse(response.body)
+      puts JSON.parse(response.body)
+   end
+   
    # mentor_id = 592292
    
    def get_mentor_availability(mentor_id)
       response = self.class.get base_api('mentors/#{mentor_id}/student_availability'), headers: { :authorization => @auth_token }
       @mentor_availability = JSON.parse(response.body)
       puts response
-   end
-   
-   def get_me
-      response = self.class.get base_api("users/me"), headers: { :authorization => @auth_token }
-      @user_data = JSON.parse(response.body)
-      puts JSON.parse(response.body)
    end
    
 end
