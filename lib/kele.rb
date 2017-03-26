@@ -20,16 +20,6 @@ class Kele
    end
 end
 
-   # def get_me
-   #    headers = {
-   #       :content_type => 'application/json',
-   #       :authorization => @auth_token
-   #    }
-   #    response = self.class.get base_api("users/me"), headers
-   #    @user_email = JSON.parse(response.body)
-   #    puts @user_email
-   #    puts JSON.parse(response.body)
-   # end
 private
 
 def base_api(target)
