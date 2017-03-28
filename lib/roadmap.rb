@@ -11,5 +11,4 @@ module Roadmap
       # raise "An error has occured" unless response.code.between?(200, 299)
       @checkpoint = JSON.parse(response.body)
    end
-   
 end
