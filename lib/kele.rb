@@ -1,10 +1,12 @@
 require 'httparty'
 require 'json'
 require_relative 'roadmap'
+require_relative 'message'
 
 class Kele
     include HTTParty
     include Roadmap
+    include Message
     
     attr_reader :auth_token
 
@@ -29,6 +31,10 @@ class Kele
       puts response
    end
    
+   def submit_checkpoint(branch, )
+      enrollment_id = 
+      response = self.class.post(base_api("checkpoint_submissions"), )
+   end
 end
 
 private
