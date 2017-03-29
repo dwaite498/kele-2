@@ -9,22 +9,22 @@ module Message
        @messages = JSON.parse(response.body)
    end
    
-   def create_message(recipient, subject, message)
-       
-       values = {
-           "recipient": recipient,
-           "subject": subject,
-           "message": message
+   def create_message
+    options = {
+        values: {
+           "sender": "dwaite498@gmail.com",
+           "token": nil,
+           "recipient_id": 592292,
+           "subject": "API message test",
+           "stripped-text": "This is a test message"
+        },
+       headers: {
+           :authorization => @auth_token
        }
-       
-    #   values = '{
-#   "sender": "strong.bad@strongbadia.gov",
-#   "recipient_id": 2,
-#   "token": "abcd",
-#   "subject": "Royale with cheese",
-#   "stripped-text": "That's what they call a quarter pounder in France."
-# }'
-       response = self.class.post(base_api("messages"), values, headers: { :authorization => @auth_token })
+    }
+    
+       response = self.class.post(base_api("messages"), options)
+    #   raise "An error has occured" unless response.code.between?(200, 299)
        puts response
    end
 end
