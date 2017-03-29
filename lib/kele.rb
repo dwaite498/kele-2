@@ -31,10 +31,10 @@ class Kele
       puts response
    end
    
-   def submit_checkpoint(branch, )
-      enrollment_id = 
-      response = self.class.post(base_api("checkpoint_submissions"), )
-   end
+#    def submit_checkpoint(branch, )
+#       enrollment_id = 
+#       response = self.class.post(base_api("checkpoint_submissions"), )
+#    end
 end
 
 private
