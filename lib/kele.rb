@@ -1,12 +1,12 @@
 require 'httparty'
 require 'json'
 require_relative 'roadmap'
-require_relative 'message'
+# require_relative 'message'
 
 class Kele
     include HTTParty
     include Roadmap
-    include Message
+   #  include Message
     
     attr_reader :auth_token
 
@@ -31,10 +31,22 @@ class Kele
       puts response
    end
    
-#    def submit_checkpoint(branch, )
-#       enrollment_id = 
-#       response = self.class.post(base_api("checkpoint_submissions"), )
-#    end
+   def submit_checkpoint
+   options = {
+      values: {
+         "assignment_branch": "assignment-22-iterative-search",
+         "assignment_commit_link": "https:/github.com/me/repo/commit/5",
+         "checkpoint_id": 2162,
+         "comment": "test checkpoint submission",
+         "enrollment_id": 20332
+      },
+      headers: {
+         :authorization => @auth_token
+      }
+   }
+      response = self.class.post base_api("checkpoint_submissions"), options
+      puts response
+   end
 end
 
 private

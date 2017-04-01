@@ -10,21 +10,22 @@ module Message
    end
    
    def create_message
+
     options = {
-        values: {
-           "sender": "dwaite498@gmail.com",
-           "token": nil,
-           "recipient_id": 592292,
-           "subject": "API message test",
-           "stripped-text": "This is a test message"
+          values: {
+            "sender": "dwaite498@gmail.com",
+            "recipient_id": 592292,
+            "token": nil,
+            "subject": "API message test",
+            "stripped-text": "This is a test message"
         },
-       headers: {
-           :authorization => @auth_token
+        headers: {
+             :authorization => @auth_token
        }
     }
-    
-       response = self.class.post(base_api("messages"), options)
-    #   raise "An error has occured" unless response.code.between?(200, 299)
-       puts response
+
+       response = self.class.post 'https://www.bloc.io/api/v1/messages', options
+    #   raise response.code unless response.code.between?(200, 299)
+       puts response.code
    end
 end
