@@ -31,9 +31,9 @@ class Kele
       puts response
    end
    
-   def submit_checkpoint
+   def submit_checkpoint # https://github.com/jnunemaker/httparty/tree/master/examples [examples of different httparty uses]
    options = {
-      values: {
+      body: {
          "assignment_branch": "assignment-22-iterative-search",
          "assignment_commit_link": "https:/github.com/me/repo/commit/5",
          "checkpoint_id": 2162,
