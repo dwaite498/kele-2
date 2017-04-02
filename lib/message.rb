@@ -27,7 +27,6 @@ module Message
 
        response = self.class.post 'https://www.bloc.io/api/v1/messages', options
     #   raise response.code unless response.code.between?(200, 299)
-     puts response.body
-       puts response.code
+       puts response
    end
 end

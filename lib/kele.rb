@@ -7,7 +7,7 @@ class Kele
     include HTTParty
     include Roadmap
     include Message
-    debug_output $stdout
+   #  debug_output $stdout
     
     attr_reader :auth_token
 
