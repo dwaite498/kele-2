@@ -1,12 +1,13 @@
 require 'httparty'
 require 'json'
 require_relative 'roadmap'
-# require_relative 'message'
+require_relative 'message'
 
 class Kele
     include HTTParty
     include Roadmap
-   #  include Message
+    include Message
+    debug_output $stdout
     
     attr_reader :auth_token
 
